@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1jPAbkTGQWQPO6YL05LMUoMO+9dZeWjro3XDUMUGr9w=",
+  "Source": "OpClient",
+  "BasePath": "_content/OpClient",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
