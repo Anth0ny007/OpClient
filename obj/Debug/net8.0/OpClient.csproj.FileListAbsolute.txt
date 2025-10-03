@@ -85,3 +85,4 @@ C:\Users\User\Desktop\Big data\Proyecto\OpClient\bin\Debug\net8.0\Microsoft.Enti
 C:\Users\User\Desktop\Big data\Proyecto\OpClient\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\User\Desktop\Big data\Proyecto\OpClient\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\User\Desktop\Big data\Proyecto\OpClient\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\User\Desktop\Big data\Proyecto\OpClient\obj\Debug\net8.0\OpClient.sourcelink.json
