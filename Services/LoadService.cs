@@ -3,15 +3,12 @@ using Microsoft.Data.SqlClient;
 public class LoadService
 {
     private readonly string _conn;
-    //public LoadService(string conn) => _conn = conn;
     public LoadService(string conn)
     {
         _conn = conn ?? throw new ArgumentException(nameof(conn));
     }
 
-    // ======================
     // Insertar Opiniones
-    // ======================
     public void InsertarDatos(List<OpinionCsv> opiniones)
     {
         using var conn = new SqlConnection(_conn);
@@ -41,57 +38,49 @@ public class LoadService
         }
     }
 
-    // ======================
     // Insertar Clientes
-    // ======================
    public void InsertarClientes(List<ClienteCsv> clientes)
-{
-    using var conn = new SqlConnection(_conn);
-    conn.Open();
-
-    foreach (var c in clientes)
     {
-        Upsert(conn, "Clientes", "Email", c.Email, "IdCliente", extraFields: new Dictionary<string, object>
-        {
-            { "Nombre", c.Nombre ?? "" }
-        });
-    }
-}
+        using var conn = new SqlConnection(_conn);
+        conn.Open();
 
-    // ======================
+        foreach (var c in clientes)
+        {
+            Upsert(conn, "Clientes", "Email", c.Email, "IdCliente", extraFields: new Dictionary<string, object>
+            {
+                { "Nombre", c.Nombre ?? "" }
+            });
+        }
+    }
+
     // Insertar Productos
-    // ======================
     public void InsertarProductos(List<ProductoCsv> productos)
-{
-    using var conn = new SqlConnection(_conn);
-    conn.Open();
-
-    foreach (var p in productos)
     {
-        Upsert(conn, "Productos", "Nombre", p.Nombre, "IdProducto", extraFields: new Dictionary<string, object>
+        using var conn = new SqlConnection(_conn);
+        conn.Open();
+
+        foreach (var p in productos)
         {
-            { "Categoria", p.Categoria ?? "" }
-        });
+            Upsert(conn, "Productos", "Nombre", p.Nombre, "IdProducto", extraFields: new Dictionary<string, object>
+            {
+                { "Categoria", p.Categoria ?? "" }
+            });
+        }
     }
-}
 
-    // ======================
     // Insertar Fuentes
-    // ======================
     public void InsertarFuentes(List<FuenteCsv> fuentes)
-{
-    using var conn = new SqlConnection(_conn);
-    conn.Open();
-
-    foreach (var f in fuentes)
     {
-        Upsert(conn, "Fuentes", "Nombre", f.TipoFuente, "IdFuente");
+        using var conn = new SqlConnection(_conn);
+        conn.Open();
+    
+        foreach (var f in fuentes)
+        {
+            Upsert(conn, "Fuentes", "Nombre", f.TipoFuente, "IdFuente");
+        }
     }
-}
 
-    // ======================
     // Método genérico Upsert
-    // ======================
     private int Upsert(SqlConnection conn, string table, string field, string value, string idField, Dictionary<string, object> extraFields = null)
     {
         string insertFields = field;
